@@ -1,0 +1,73 @@
+﻿<Window
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:Custom="http://schemas.devexpress.com/winfx/2008/xaml/editors/internal" x:Class="WpfApplication11.Controls.ucList" 
+             mc:Ignorable="d" WindowStyle="None" Width="90" Height="140"
+             >
+    <Window.Resources>
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        
+                        <Grid  Background="Gray" Name="xxx">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{Binding imagepath}" Width="30"/>
+                            <Border Background="White" Grid.Column="1" Name="xxxx">
+                                <TextBlock Text="{Binding txt}"/>
+                            </Border>
+                        </Grid>
+                        <ControlTemplate.Triggers >
+                            <Trigger Property="IsMouseOver" Value="True" >
+                                <Setter Property="Background" Value="Red" TargetName="xxx"/>
+                                <Setter Property="Background" Value="Red" TargetName="xxxx"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                  </Setter.Value>
+            </Setter>
+            <Setter Property="Margin" Value="0"/>
+            
+            
+        </Style>
+       
+    </Window.Resources>
+    <Grid>
+        <ListBox Name="list1"  PreviewMouseLeftButtonDown="ListBox_PreviewMouseLeftButtonDown" 
+                ItemsSource="{Binding}"  >
+
+            <!--<ListBoxItem   >
+                <StackPanel Orientation="Horizontal" Background="Gray">
+                    <Image Source="E:/测试/WpfApplication11/WpfApplication11/images/在线.png" />
+                    <Border Background="White">
+                        <TextBlock Text="在线" VerticalAlignment="Center" FontSize="15"  Margin="5"/>
+                    </Border>
+                    
+                </StackPanel>
+            </ListBoxItem>-->
+
+             <!--<ListBoxItem Content="1,离线" >
+               <StackPanel Orientation="Horizontal" Background="Gray">
+                    <Image Source="/WpfApplication11;component/images/在线.png" />
+                    <Border Background="White">
+                        <TextBlock Text="在线" VerticalAlignment="Center" FontSize="15"  Margin="5"/>
+                    </Border>
+
+                </StackPanel>--><!--
+            </ListBoxItem>
+
+            <ListBoxItem Content="2,离开" >
+                --><!--<StackPanel Orientation="Horizontal">
+                    <Image Source="/WpfApplication11;component/images/离线.png" Height="30" />
+                    <TextBlock Text="离开" VerticalAlignment="Center" FontSize="15"  Margin="5"/>
+                </StackPanel>--><!--
+            </ListBoxItem>-->
+           
+        </ListBox>
+    </Grid>
+</Window>
